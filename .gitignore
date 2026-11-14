@@ -11,3 +11,6 @@ __pycache__/
 
 # Secret settings such as passwords. Never stored in Git.
 .env
+
+# Files made by the generator. Rebuilt by running it, so never stored in Git.
+generated_data/
