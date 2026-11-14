@@ -1,0 +1,18 @@
+# Settings for Ruff, the code tidier and checker.
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+
+[tool.ruff.lint]
+select = [
+    "E",    # basic layout errors
+    "F",    # real mistakes, such as names that are never used or never defined
+    "I",    # imports kept in a tidy order
+    "N",    # standard naming conventions
+    "B",    # common bug patterns
+    "ANN",  # a type hint on every function
+    "D",    # a docstring on every function and file
+]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"

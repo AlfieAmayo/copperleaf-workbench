@@ -1,0 +1,13 @@
+# The project's lunchbox. Rebuilt from requirements.txt, so never stored in Git.
+.venv/
+
+# Python's temporary speed-up files.
+__pycache__/
+*.pyc
+
+# Caches made by pytest and Ruff.
+.pytest_cache/
+.ruff_cache/
+
+# Secret settings such as passwords. Never stored in Git.
+.env
