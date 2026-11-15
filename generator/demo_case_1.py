@@ -171,29 +171,34 @@ def write_csv_file(
         writer.writerows(rows)
 
 
-if __name__ == "__main__":
+def write_demo_case_1_files(output_folder: Path) -> None:
+    """Write all five demo case 1 source files into the given folder."""
     write_csv_file(
-        OUTPUT_FOLDER / "purchase_orders.csv",
+        output_folder / "purchase_orders.csv",
         PURCHASE_ORDER_COLUMNS,
         PURCHASE_ORDER_ROWS,
     )
     write_csv_file(
-        OUTPUT_FOLDER / "invoices.csv",
+        output_folder / "invoices.csv",
         INVOICE_COLUMNS,
         INVOICE_ROWS,
     )
     write_csv_file(
-        OUTPUT_FOLDER / "warehouse_shipments.csv",
+        output_folder / "warehouse_shipments.csv",
         WAREHOUSE_SHIPMENT_COLUMNS,
         WAREHOUSE_SHIPMENT_ROWS,
     )
     write_csv_file(
-        OUTPUT_FOLDER / "delivery_receipts.csv",
+        output_folder / "delivery_receipts.csv",
         DELIVERY_RECEIPT_COLUMNS,
         DELIVERY_RECEIPT_ROWS,
     )
     write_csv_file(
-        OUTPUT_FOLDER / "ashgrove_remittance_AGN-PAY-0420-03.csv",
+        output_folder / "ashgrove_remittance_AGN-PAY-0420-03.csv",
         ASHGROVE_REMITTANCE_COLUMNS,
         ASHGROVE_REMITTANCE_ROWS,
     )
+
+
+if __name__ == "__main__":
+    write_demo_case_1_files(OUTPUT_FOLDER)
