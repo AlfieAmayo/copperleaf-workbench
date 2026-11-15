@@ -3,7 +3,7 @@
 import csv
 from pathlib import Path
 
-OUTPUT_FOLDER = Path("generated_data/demo_case_1")
+OUTPUT_FOLDER = Path("generated_data")
 
 PURCHASE_ORDER_COLUMNS = [
     "po_number",
@@ -172,29 +172,30 @@ def write_csv_file(
 
 
 def write_demo_case_1_files(output_folder: Path) -> None:
-    """Write all five demo case 1 source files into the given folder."""
+    """Write all five demo case 1 source files into the evidence folder."""
+    evidence_folder = output_folder / "evidence"
     write_csv_file(
-        output_folder / "purchase_orders.csv",
+        evidence_folder / "purchase_orders.csv",
         PURCHASE_ORDER_COLUMNS,
         PURCHASE_ORDER_ROWS,
     )
     write_csv_file(
-        output_folder / "invoices.csv",
+        evidence_folder / "invoices.csv",
         INVOICE_COLUMNS,
         INVOICE_ROWS,
     )
     write_csv_file(
-        output_folder / "warehouse_shipments.csv",
+        evidence_folder / "warehouse_shipments.csv",
         WAREHOUSE_SHIPMENT_COLUMNS,
         WAREHOUSE_SHIPMENT_ROWS,
     )
     write_csv_file(
-        output_folder / "delivery_receipts.csv",
+        evidence_folder / "delivery_receipts.csv",
         DELIVERY_RECEIPT_COLUMNS,
         DELIVERY_RECEIPT_ROWS,
     )
     write_csv_file(
-        output_folder / "ashgrove_remittance_AGN-PAY-0420-03.csv",
+        evidence_folder / "remittances" / "ashgrove" / "AGN-PAY-0420-03.csv",
         ASHGROVE_REMITTANCE_COLUMNS,
         ASHGROVE_REMITTANCE_ROWS,
     )

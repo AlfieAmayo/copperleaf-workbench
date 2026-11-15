@@ -9,7 +9,9 @@ def test_purchase_orders_match_spec(tmp_path: Path) -> None:
     """The purchase order file matches the spec line for line."""
     write_demo_case_1_files(tmp_path)
 
-    file_text = (tmp_path / "purchase_orders.csv").read_text(encoding="utf-8")
+    file_text = (tmp_path / "evidence" / "purchase_orders.csv").read_text(
+        encoding="utf-8"
+    )
 
     assert file_text == (
         "po_number,line_no,customer_id,po_date,ship_to,product_code,cases_ordered\n"
@@ -22,7 +24,7 @@ def test_invoices_match_spec(tmp_path: Path) -> None:
     """The invoice file matches the spec line for line."""
     write_demo_case_1_files(tmp_path)
 
-    file_text = (tmp_path / "invoices.csv").read_text(encoding="utf-8")
+    file_text = (tmp_path / "evidence" / "invoices.csv").read_text(encoding="utf-8")
 
     assert file_text == (
         "invoice_number,line_no,invoice_date,customer_id,po_number,"
@@ -36,7 +38,9 @@ def test_warehouse_shipments_match_spec(tmp_path: Path) -> None:
     """The warehouse shipments file matches the spec line for line."""
     write_demo_case_1_files(tmp_path)
 
-    file_text = (tmp_path / "warehouse_shipments.csv").read_text(encoding="utf-8")
+    file_text = (tmp_path / "evidence" / "warehouse_shipments.csv").read_text(
+        encoding="utf-8"
+    )
 
     assert file_text == (
         "wh_order_id,line_no,customer_po_ref,destination,ship_date,"
@@ -50,7 +54,9 @@ def test_delivery_receipts_match_spec(tmp_path: Path) -> None:
     """The delivery receipts file matches the spec line for line."""
     write_demo_case_1_files(tmp_path)
 
-    file_text = (tmp_path / "delivery_receipts.csv").read_text(encoding="utf-8")
+    file_text = (tmp_path / "evidence" / "delivery_receipts.csv").read_text(
+        encoding="utf-8"
+    )
 
     assert file_text == (
         "receipt_id,carrier,bol_number,delivered_at,"
@@ -64,9 +70,9 @@ def test_ashgrove_remittance_matches_spec(tmp_path: Path) -> None:
     """The ashgrove remiittance file matches the spec line for line."""
     write_demo_case_1_files(tmp_path)
 
-    file_text = (tmp_path / "ashgrove_remittance_AGN-PAY-0420-03.csv").read_text(
-        encoding="utf-8"
-    )
+    file_text = (
+        tmp_path / "evidence" / "remittances/ashgrove/AGN-PAY-0420-03.csv"
+    ).read_text(encoding="utf-8")
 
     assert file_text == (
         "remittance_date,payment_id,line_id,invoice_ref,"
