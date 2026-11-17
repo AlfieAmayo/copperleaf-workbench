@@ -2,12 +2,12 @@
 
 from pathlib import Path
 
-from generator.demo_case_1 import write_demo_case_1_files
+from generator.generate import generate_all_files
 
 
 def test_purchase_orders_match_spec(tmp_path: Path) -> None:
     """The purchase order file matches the spec line for line."""
-    write_demo_case_1_files(tmp_path)
+    generate_all_files(tmp_path)
 
     file_text = (tmp_path / "evidence" / "purchase_orders.csv").read_text(
         encoding="utf-8"
@@ -22,7 +22,7 @@ def test_purchase_orders_match_spec(tmp_path: Path) -> None:
 
 def test_invoices_match_spec(tmp_path: Path) -> None:
     """The invoice file matches the spec line for line."""
-    write_demo_case_1_files(tmp_path)
+    generate_all_files(tmp_path)
 
     file_text = (tmp_path / "evidence" / "invoices.csv").read_text(encoding="utf-8")
 
@@ -36,7 +36,7 @@ def test_invoices_match_spec(tmp_path: Path) -> None:
 
 def test_warehouse_shipments_match_spec(tmp_path: Path) -> None:
     """The warehouse shipments file matches the spec line for line."""
-    write_demo_case_1_files(tmp_path)
+    generate_all_files(tmp_path)
 
     file_text = (tmp_path / "evidence" / "warehouse_shipments.csv").read_text(
         encoding="utf-8"
@@ -52,7 +52,7 @@ def test_warehouse_shipments_match_spec(tmp_path: Path) -> None:
 
 def test_delivery_receipts_match_spec(tmp_path: Path) -> None:
     """The delivery receipts file matches the spec line for line."""
-    write_demo_case_1_files(tmp_path)
+    generate_all_files(tmp_path)
 
     file_text = (tmp_path / "evidence" / "delivery_receipts.csv").read_text(
         encoding="utf-8"
@@ -67,8 +67,8 @@ def test_delivery_receipts_match_spec(tmp_path: Path) -> None:
 
 
 def test_ashgrove_remittance_matches_spec(tmp_path: Path) -> None:
-    """The ashgrove remiittance file matches the spec line for line."""
-    write_demo_case_1_files(tmp_path)
+    """The ashgrove remittance file matches the spec line for line."""
+    generate_all_files(tmp_path)
 
     file_text = (
         tmp_path / "evidence" / "remittances/ashgrove/AGN-PAY-0420-03.csv"
@@ -79,4 +79,20 @@ def test_ashgrove_remittance_matches_spec(tmp_path: Path) -> None:
         "gross_usd,deduction_code,deduction_usd,description,net_usd\n"
         "2026-04-20,AGN-PAY-0420-03,1,CL-10482,2400.00,"
         "02,-240.00,SHORT 10 CS HIBISCUS,2160.00\n"
+    )
+
+
+def test_products_match_spec(tmp_path: Path) -> None:
+    """The products file matches the spec line for line."""
+    generate_all_files(tmp_path)
+
+    file_text = (tmp_path / "evidence" / "products.csv").read_text(encoding="utf-8")
+
+    assert file_text == (
+        "product_code,product_name,case_pack,"
+        "can_size_fl_oz,standard_case_price_usd\n"
+        "CL-YZG-24,Yuzu Ginger,24,12,26.00\n"
+        "CL-HBL-24,Hibiscus Lime,24,12,26.00\n"
+        "CL-BOR-24,Blood Orange,24,12,26.00\n"
+        "CL-CUM-24,Cucumber Mint,24,12,26.00\n"
     )
