@@ -21,17 +21,23 @@ def test_purchase_orders_match_spec(tmp_path: Path) -> None:
 
 
 def test_invoices_match_spec(tmp_path: Path) -> None:
-    """The invoice file matches the spec line for line."""
+    """The invoice file has the spec's header and contains case 1's rows."""
     generate_all_files(tmp_path)
 
-    file_text = (tmp_path / "evidence" / "invoices.csv").read_text(encoding="utf-8")
+    invoices_file = tmp_path / "evidence" / "invoices.csv"
+    file_lines = invoices_file.read_text(encoding="utf-8").splitlines()
 
-    assert file_text == (
+    assert file_lines[0] == (
         "invoice_number,line_no,invoice_date,customer_id,po_number,"
-        "product_code,cases_billed,case_price_usd,line_amount_usd,payment_terms\n"
-        "CL-10482,1,2026-03-09,ASH,AGN-448210,CL-YZG-24,60,24.00,1440.00,NET45\n"
-        "CL-10482,2,2026-03-09,ASH,AGN-448210,CL-HBL-24,40,24.00,960.00,NET45\n"
+        "product_code,cases_billed,case_price_usd,line_amount_usd,payment_terms"
     )
+
+    case_1_rows = [
+        "CL-10482,1,2026-03-09,ASH,AGN-448210,CL-YZG-24,60,24.00,1440.00,NET45",
+        "CL-10482,2,2026-03-09,ASH,AGN-448210,CL-HBL-24,40,24.00,960.00,NET45",
+    ]
+    for row in case_1_rows:
+        assert row in file_lines
 
 
 def test_warehouse_shipments_match_spec(tmp_path: Path) -> None:

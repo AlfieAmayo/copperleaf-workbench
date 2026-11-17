@@ -3,7 +3,7 @@
 import shutil
 from pathlib import Path
 
-from generator import demo_case_1, file_columns, reference_data
+from generator import demo_case_1, demo_case_2, file_columns, reference_data
 from generator.csv_files import write_csv_file
 
 OUTPUT_FOLDER = Path("generated_data")
@@ -31,7 +31,7 @@ def write_evidence_files(output_folder: Path) -> None:
     write_csv_file(
         evidence_folder / "invoices.csv",
         file_columns.INVOICE_COLUMNS,
-        demo_case_1.INVOICE_ROWS,
+        demo_case_1.INVOICE_ROWS + demo_case_2.INVOICE_ROWS,
     )
     write_csv_file(
         evidence_folder / "warehouse_shipments.csv",
