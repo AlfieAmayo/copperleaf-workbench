@@ -8,6 +8,14 @@ PRODUCT_COLUMNS = [
     "standard_case_price_usd",
 ]
 
+PRICE_LIST_COLUMNS = [
+    "customer_id",
+    "product_code",
+    "effective_from",
+    "effective_to",
+    "case_price_usd",
+]
+
 PURCHASE_ORDER_COLUMNS = [
     "po_number",
     "line_no",

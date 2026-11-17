@@ -30,3 +30,62 @@ PRODUCT_ROWS = [
         "standard_case_price_usd": "26.00",
     },
 ]
+
+PRICE_LIST_ROWS = [
+    {
+        "customer_id": "ASH",
+        "product_code": "CL-YZG-24",
+        "effective_from": "2026-01-01",
+        "effective_to": "",
+        "case_price_usd": "24.00",
+    },
+    {
+        "customer_id": "ASH",
+        "product_code": "CL-HBL-24",
+        "effective_from": "2026-01-01",
+        "effective_to": "",
+        "case_price_usd": "24.00",
+    },
+    {
+        "customer_id": "ASH",
+        "product_code": "CL-BOR-24",
+        "effective_from": "2026-01-01",
+        "effective_to": "",
+        "case_price_usd": "24.00",
+    },
+    {
+        "customer_id": "ASH",
+        "product_code": "CL-CUM-24",
+        "effective_from": "2026-01-01",
+        "effective_to": "",
+        "case_price_usd": "24.00",
+    },
+    {
+        "customer_id": "PEL",
+        "product_code": "CL-YZG-24",
+        "effective_from": "2026-01-01",
+        "effective_to": "",
+        "case_price_usd": "23.50",
+    },
+    {
+        "customer_id": "PEL",
+        "product_code": "CL-HBL-24",
+        "effective_from": "2026-01-01",
+        "effective_to": "",
+        "case_price_usd": "23.50",
+    },
+    {
+        "customer_id": "PEL",
+        "product_code": "CL-BOR-24",
+        "effective_from": "2026-01-01",
+        "effective_to": "",
+        "case_price_usd": "23.50",
+    },
+    {
+        "customer_id": "PEL",
+        "product_code": "CL-CUM-24",
+        "effective_from": "2026-01-01",
+        "effective_to": "",
+        "case_price_usd": "23.50",
+    },
+]

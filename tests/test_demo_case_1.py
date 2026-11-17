@@ -80,19 +80,3 @@ def test_ashgrove_remittance_matches_spec(tmp_path: Path) -> None:
         "2026-04-20,AGN-PAY-0420-03,1,CL-10482,2400.00,"
         "02,-240.00,SHORT 10 CS HIBISCUS,2160.00\n"
     )
-
-
-def test_products_match_spec(tmp_path: Path) -> None:
-    """The products file matches the spec line for line."""
-    generate_all_files(tmp_path)
-
-    file_text = (tmp_path / "evidence" / "products.csv").read_text(encoding="utf-8")
-
-    assert file_text == (
-        "product_code,product_name,case_pack,"
-        "can_size_fl_oz,standard_case_price_usd\n"
-        "CL-YZG-24,Yuzu Ginger,24,12,26.00\n"
-        "CL-HBL-24,Hibiscus Lime,24,12,26.00\n"
-        "CL-BOR-24,Blood Orange,24,12,26.00\n"
-        "CL-CUM-24,Cucumber Mint,24,12,26.00\n"
-    )

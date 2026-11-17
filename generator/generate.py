@@ -17,6 +17,11 @@ def write_evidence_files(output_folder: Path) -> None:
         reference_data.PRODUCT_ROWS,
     )
     write_csv_file(
+        evidence_folder / "price_list.csv",
+        file_columns.PRICE_LIST_COLUMNS,
+        reference_data.PRICE_LIST_ROWS,
+    )
+    write_csv_file(
         evidence_folder / "purchase_orders.csv",
         file_columns.PURCHASE_ORDER_COLUMNS,
         demo_case_1.PURCHASE_ORDER_ROWS,
