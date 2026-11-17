@@ -1,5 +1,53 @@
 """Rows for demo case 2, the Pellwood promotion claimed at the wrong rate."""
 
+PURCHASE_ORDER_ROWS = [
+    {
+        "po_number": "PWD-20877",
+        "line_no": "1",
+        "customer_id": "PEL",
+        "po_date": "2026-04-28",
+        "ship_to": "Pellwood Distributing, Yonkers NY",
+        "product_code": "CL-BOR-24",
+        "cases_ordered": "120",
+    },
+    {
+        "po_number": "PWD-20877",
+        "line_no": "2",
+        "customer_id": "PEL",
+        "po_date": "2026-04-28",
+        "ship_to": "Pellwood Distributing, Yonkers NY",
+        "product_code": "CL-YZG-24",
+        "cases_ordered": "40",
+    },
+    {
+        "po_number": "PWD-20904",
+        "line_no": "1",
+        "customer_id": "PEL",
+        "po_date": "2026-05-12",
+        "ship_to": "Pellwood Distributing, Yonkers NY",
+        "product_code": "CL-BOR-24",
+        "cases_ordered": "80",
+    },
+    {
+        "po_number": "PWD-20958",
+        "line_no": "1",
+        "customer_id": "PEL",
+        "po_date": "2026-05-26",
+        "ship_to": "Pellwood Distributing, Yonkers NY",
+        "product_code": "CL-HBL-24",
+        "cases_ordered": "60",
+    },
+    {
+        "po_number": "PWD-20958",
+        "line_no": "2",
+        "customer_id": "PEL",
+        "po_date": "2026-05-26",
+        "ship_to": "Pellwood Distributing, Yonkers NY",
+        "product_code": "CL-CUM-24",
+        "cases_ordered": "40",
+    },
+]
+
 INVOICE_ROWS = [
     {
         "invoice_number": "CL-10540",
@@ -60,5 +108,91 @@ INVOICE_ROWS = [
         "case_price_usd": "23.50",
         "line_amount_usd": "940.00",
         "payment_terms": "NET45",
+    },
+]
+
+WAREHOUSE_SHIPMENT_ROWS = [
+    {
+        "wh_order_id": "WH-779214",
+        "line_no": "1",
+        "customer_po_ref": "PWD-20877",
+        "destination": "PELLWOOD DC YONKERS",
+        "ship_date": "2026-05-05",
+        "product_code": "CL-BOR-24",
+        "cases_shipped": "120",
+        "bol_number": "BOL-5522871",
+    },
+    {
+        "wh_order_id": "WH-779214",
+        "line_no": "2",
+        "customer_po_ref": "PWD-20877",
+        "destination": "PELLWOOD DC YONKERS",
+        "ship_date": "2026-05-05",
+        "product_code": "CL-YZG-24",
+        "cases_shipped": "40",
+        "bol_number": "BOL-5522871",
+    },
+    {
+        "wh_order_id": "WH-779372",
+        "line_no": "1",
+        "customer_po_ref": "PWD-20904",
+        "destination": "PELLWOOD DC YONKERS",
+        "ship_date": "2026-05-19",
+        "product_code": "CL-BOR-24",
+        "cases_shipped": "80",
+        "bol_number": "BOL-5523015",
+    },
+    {
+        "wh_order_id": "WH-779561",
+        "line_no": "1",
+        "customer_po_ref": "PWD-20958",
+        "destination": "PELLWOOD DC YONKERS",
+        "ship_date": "2026-06-02",
+        "product_code": "CL-HBL-24",
+        "cases_shipped": "60",
+        "bol_number": "BOL-5523240",
+    },
+    {
+        "wh_order_id": "WH-779561",
+        "line_no": "2",
+        "customer_po_ref": "PWD-20958",
+        "destination": "PELLWOOD DC YONKERS",
+        "ship_date": "2026-06-02",
+        "product_code": "CL-CUM-24",
+        "cases_shipped": "40",
+        "bol_number": "BOL-5523240",
+    },
+]
+
+DELIVERY_RECEIPT_ROWS = [
+    {
+        "receipt_id": "RCPT-31547",
+        "carrier": "Route Nine Freight",
+        "bol_number": "BOL-5522871",
+        "delivered_at": "2026-05-07 10:20",
+        "cases_received": "160",
+        "exceptions_noted": "none",
+        "exception_detail": "",
+        "signed_by": "M. Ortiz",
+    },
+    {
+        "receipt_id": "RCPT-31633",
+        "carrier": "Route Nine Freight",
+        "bol_number": "BOL-5523015",
+        "delivered_at": "2026-05-21 08:50",
+        "cases_received": "80",
+        "exceptions_noted": "none",
+        "exception_detail": "",
+        "signed_by": "M. Ortiz",
+    },
+    {
+        "receipt_id": "RCPT-31741",
+        "carrier": "Route Nine Freight",
+        "bol_number": "BOL-5523240",
+        "delivered_at": "2026-06-04 11:05",
+        "cases_received": "100",
+        "exceptions_noted": "none",
+        "exception_detail": "",
+        "signed_by": "M. Ortiz",
     },
 ]

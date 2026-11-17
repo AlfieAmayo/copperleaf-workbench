@@ -26,7 +26,7 @@ def write_evidence_files(output_folder: Path) -> None:
     write_csv_file(
         evidence_folder / "purchase_orders.csv",
         file_columns.PURCHASE_ORDER_COLUMNS,
-        demo_case_1.PURCHASE_ORDER_ROWS,
+        demo_case_1.PURCHASE_ORDER_ROWS + demo_case_2.PURCHASE_ORDER_ROWS,
     )
     write_csv_file(
         evidence_folder / "invoices.csv",
@@ -36,12 +36,12 @@ def write_evidence_files(output_folder: Path) -> None:
     write_csv_file(
         evidence_folder / "warehouse_shipments.csv",
         file_columns.WAREHOUSE_SHIPMENT_COLUMNS,
-        demo_case_1.WAREHOUSE_SHIPMENT_ROWS,
+        demo_case_1.WAREHOUSE_SHIPMENT_ROWS + demo_case_2.WAREHOUSE_SHIPMENT_ROWS,
     )
     write_csv_file(
         evidence_folder / "delivery_receipts.csv",
         file_columns.DELIVERY_RECEIPT_COLUMNS,
-        demo_case_1.DELIVERY_RECEIPT_ROWS,
+        demo_case_1.DELIVERY_RECEIPT_ROWS + demo_case_2.DELIVERY_RECEIPT_ROWS,
     )
 
 
