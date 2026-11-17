@@ -2,6 +2,8 @@
 
 from pathlib import Path
 
+import yaml
+
 from generator.generate import generate_all_files
 
 
@@ -38,3 +40,14 @@ def test_price_list_matches_spec(tmp_path: Path) -> None:
         "PEL,CL-BOR-24,2026-01-01,,23.50\n"
         "PEL,CL-CUM-24,2026-01-01,,23.50\n"
     )
+
+
+def test_customer_policies_keep_codes_as_text(tmp_path: Path) -> None:
+    """Deduction codes stay text, so the shortage code keeps its leading zero."""
+    generate_all_files(tmp_path)
+
+    policies_file = tmp_path / "configuration" / "customer_policies.yaml"
+    policies = yaml.safe_load(policies_file.read_text(encoding="utf-8"))
+
+    assert policies["ASH"]["deduction_codes"]["shortage"] == "02"
+    assert policies["PEL"]["deduction_codes"]["shortage"] == "SH"

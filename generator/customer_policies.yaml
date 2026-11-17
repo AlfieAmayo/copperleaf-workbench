@@ -1,0 +1,65 @@
+ASH:
+  name: Ashgrove
+  remittance_format: csv
+  amounts_printed_positive: false
+  deduction_codes:
+    shortage: "02"
+    promotion: "05"
+    credit_memo_applied: "CM"
+    repayment: ["R02", "R05"]
+  other_codes:
+    "01": pricing
+    "03": damage
+    "04": spoils
+  repayment_memo_cites: deduction_reference
+  dispute_window_days:
+    shortage: 60
+    promotion: 90
+  window_starts_from: remittance_date
+  documents_to_file:
+    shortage: [invoice, purchase_order, delivery_receipt]
+    promotion: [invoice, promotion_agreement]
+  product_aliases:
+    HIBISCUS: CL-HBL-24
+    YUZU: CL-YZG-24
+    BLOOD ORANGE: CL-BOR-24
+    CUKE MINT: CL-CUM-24
+  destination_aliases:
+    "Ashgrove DC Edison NJ": ASHGROVE EDISON
+  simulated_response_days: 14
+  repayment_lag_days: 8
+
+PEL:
+  name: Pellwood
+  remittance_format: pipe_separated_text
+  amounts_printed_positive: true
+  deduction_codes:
+    shortage: "SH"
+    promotion: "PR"
+    credit_memo_applied: "CM"
+    repayment: ["RP"]
+  other_codes:
+    "PC": pricing
+    "DM": damage
+    "SP": spoils
+  repayment_memo_cites: invoice_only
+  dispute_window_days:
+    shortage: 30
+    promotion: 60
+  window_starts_from: payment_date
+  documents_to_file:
+    shortage: [invoice, bill_of_lading, proof_of_delivery]
+    promotion: [invoice, promotion_agreement]
+  product_aliases:
+    HIB LIME: CL-HBL-24
+    YUZU GING: CL-YZG-24
+    BLD ORG: CL-BOR-24
+    CUC MINT: CL-CUM-24
+  destination_aliases:
+    "Pellwood Distributing, Yonkers NY": PELLWOOD DC YONKERS
+  simulated_response_days: 21
+  repayment_lag_days: 7
+
+COPPERLEAF:
+  write_off_threshold_usd: "100.00"
+  deadline_time: "23:59"

@@ -1,11 +1,13 @@
 """Collect every case's rows and write each data file once into generated_data."""
 
+import shutil
 from pathlib import Path
 
 from generator import demo_case_1, file_columns, reference_data
 from generator.csv_files import write_csv_file
 
 OUTPUT_FOLDER = Path("generated_data")
+CUSTOMER_POLICIES_SOURCE = Path(__file__).parent / "customer_policies.yaml"
 
 
 def write_evidence_files(output_folder: Path) -> None:
@@ -54,10 +56,20 @@ def write_ashgrove_remittances(output_folder: Path) -> None:
         )
 
 
+def copy_customer_policies(output_folder: Path) -> None:
+    """Copy the hand-written customer policies file into the configuration folder."""
+    configuration_folder = output_folder / "configuration"
+    configuration_folder.mkdir(parents=True, exist_ok=True)
+    shutil.copyfile(
+        CUSTOMER_POLICIES_SOURCE, configuration_folder / "customer_policies.yaml"
+    )
+
+
 def generate_all_files(output_folder: Path) -> None:
     """Write every data file the generator makes."""
     write_evidence_files(output_folder)
     write_ashgrove_remittances(output_folder)
+    copy_customer_policies(output_folder)
 
 
 if __name__ == "__main__":
